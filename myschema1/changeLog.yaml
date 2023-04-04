@@ -1,0 +1,13 @@
+databaseChangeLog:
+
+- preConditions:
+  - or:
+    - runningAs:
+      - username: lb_dev
+    - runningAs:
+      - username: lb_test
+    - runningAs:
+      - username: ids
+
+- includeAll:
+  - path: myschema1/tables/

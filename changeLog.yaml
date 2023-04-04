@@ -1,0 +1,11 @@
+databaseChangeLog:
+
+- preConditions:
+  - or:
+    - runningAs:
+      - username: lb_dev
+    - runningAs:
+      - username: lb_test
+
+- include:
+  - file: myschema1/changeLog.yaml
