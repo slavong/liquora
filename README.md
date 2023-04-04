@@ -32,7 +32,7 @@ ALTER USER myschema1 QUOTA UNLIMITED ON users;
 
 ## Create Table
 
-- added script for [table `table1`](myschema/tables/table1.sql)
+- added script for [table `table1`](myschema1/tables/table1.sql)
 - only changeset 1 exists at the moment
 - grant permissions to user `LB_DEV`
 ```sql
@@ -42,7 +42,7 @@ GRANT CREATE ANY TABLE to lb_dev;
 - table `TABLE1` is created in schema `MYSCHEMA1`
 
 ## Alter Table
-- add changeset2 to [table `table1`](myschema/tables/table1.sql)
+- add changeset2 to [table `table1`](myschema1/tables/table1.sql)
 - grant permissions to user `LB_DEV`
 ```sql
 GRANT ALTER ANY TABLE to lb_dev;
@@ -50,3 +50,17 @@ GRANT CREATE ANY INDEX to lb_dev;
 ```
 - run `liquibase update`
 - table `TABLE1` is modified
+
+## Create View
+- create script for [view `view1`](myschema1/views/view1.sql)
+- grant permissions to user `LB_DEV`
+```sql
+GRANT CREATE ANY VIEW to lb_dev;
+```
+- run `liquibase update`
+- view `VIEW1` is created
+
+## Modify View
+- change script for [view `view1`](myschema1/views/view1.sql) either increasing id or not
+- run `liquibase update`
+- view `VIEW1` is modified, runOnChange works as expected

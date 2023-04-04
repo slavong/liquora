@@ -2,3 +2,5 @@ databaseChangeLog:
 
 - includeAll:
   - path: myschema1/tables/
+- includeAll:
+  - path: myschema1/views/
