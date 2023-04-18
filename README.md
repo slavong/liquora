@@ -42,6 +42,7 @@ Requirements:
 - table `TABLE1` is created in schema `MYSCHEMA1`
 
 ## Alter Table
+
 - add changeset2 to [table `table1`](myschema1/tables/table1.sql)
 - grant permissions to user `LB_DEV`
     ```sql
@@ -52,6 +53,7 @@ Requirements:
 - table `TABLE1` is modified
 
 ## Create View
+
 - create script for [view `view1`](myschema1/views/view1.sql)
 - grant permissions to user `LB_DEV`
     ```sql
@@ -61,11 +63,13 @@ Requirements:
 - view `VIEW1` is created
 
 ## Modify View
+
 - change script for [view `view1`](myschema1/views/view1.sql) either increasing id or not
 - run `liquibase update`
 - view `VIEW1` is modified, runOnChange works as expected
 
 ## Add Existing Table
+
 - create table `TABLE2` directly in schema `myschema1`
 - liquibase does not know about the new table, running `liquibase update` does not check for additional objects
 - but we want to include it in our repo
@@ -74,3 +78,11 @@ Requirements:
 - run `liquibase markNextChangeSetRan`
 - the next run of `liquibase update` succeeds
 - and we can continue now as with table that was created using liquibase, see changeset `sna:1`
+
+## Packages, Procedures and Functions
+
+- liquibase user needs CREATE ANY PROCEDURE privilege for creating any packages, functions and procedures in other schemas
+```sql
+GRANT CREATE ANY procedure TO lb_dev;
+```
+- adding new or existing packages/procedures/functions works the same way as for views

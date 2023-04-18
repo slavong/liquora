@@ -4,3 +4,9 @@ databaseChangeLog:
   - path: myschema1/tables/
 - includeAll:
   - path: myschema1/views/
+- includeAll:
+  - path: myschema1/packages/
+- includeAll:
+  - path: myschema1/procedures/
+- includeAll:
+  - path: myschema1/functions/
